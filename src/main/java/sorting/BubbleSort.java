@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] array=Fields.sortArray;
+        int[] array=Fields.inputArray;
         printArray(array);
         //Bubble sorting begins
         for(int i=0;i< array.length;i++){

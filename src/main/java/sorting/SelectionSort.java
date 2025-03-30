@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] array=Fields.sortArray;
+        int[] array=Fields.inputArray;
         printArray(array);
         //selection sorting begins
         for(int i=0;i< array.length;i++){

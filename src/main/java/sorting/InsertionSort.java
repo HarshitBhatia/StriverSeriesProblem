@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] array=Fields.sortArray;
+        int[] array=Fields.inputArray;
         printArray(array);
         //Selection sorting begins
-        for(int i=1;i< array.length;i++){
+        for(int i=1;i<array.length;i++){
             int j=i;
             while(j>0 && array[j]<array[j-1]){
                 //swapping numbers

@@ -18,9 +18,9 @@ public class MergeSort {
             return;
         }
         int mid=(low+high)/2;
-        mergeArray(array,low,mid,high);
         doMergeSort(array,low,mid);
         doMergeSort(array,mid+1,high);
+        mergeArray(array,low,mid,high);
 //        LinkedList
 
     }
