@@ -8,7 +8,7 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] array=Fields.inputArray;
         printArray(array);
-        //Selection sorting begins
+        //Insertion sorting begins
         for(int i=1;i<array.length;i++){
             int j=i;
             while(j>0 && array[j]<array[j-1]){

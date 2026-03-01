@@ -2,15 +2,67 @@ package sorting;
 
 import utility.Fields;
 
+import java.util.Arrays;
+
 
 public class SortRevision {
     public static void main(String[] args) {
         int[] arr = Fields.inputArray;
+        int[] sys = Fields.inputArray.clone();
         printArray(arr);
 //        doSelectionSort(arr.clone());
 //        insertionSort(arr);
-        mergeSort(arr,0,arr.length-1);
-        printArray(arr);
+//        mergeSort(arr,0,arr.length-1);
+//        recursiveBubbleSort(arr,arr.length);
+//        doMergeSort(arr,0,arr.length-1);
+//        printArray(Fields.inputArray);
+//        printArray(sys);
+        doQuickSortArray(sys,0, sys.length-1);
+        printArray(sys);
+    }
+
+    private static void doQuickSortArray(int[] arr, int low, int high) {
+        if(low<high){
+            int pivotIndex= getPartitionIndexAndPlacePivot(arr,low,high);
+            doQuickSortArray(arr,low,pivotIndex-1);
+            doQuickSortArray(arr,pivotIndex+1,high);
+        }
+    }
+
+    private static int getPartitionIndexAndPlacePivot(int[] arr, int low, int high) {
+        int pivotElement=arr[high];
+        int i=low-1;
+        for(int j=low;j<high;j++){
+            if(arr[j]<pivotElement){
+                swap(arr,i+1,j);
+                i++;
+            }
+        }
+        swap(arr,++i,high);
+        return i;
+    }
+
+    private static void doMergeSort(int[] arr, int low, int high) {
+        if(low<high){
+            int mid=(low+high)/2;
+            doMergeSort(arr,low,mid);
+            doMergeSort(arr,mid+1,high);
+            mergeSortedArray(arr,low,mid,high);
+        }
+    }
+
+    private static void recursiveBubbleSort(int[] arr, int length) {
+        if(length==1){
+            return;
+        }
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i]>arr[i+1]){
+                int temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+            }
+        }
+        recursiveBubbleSort(arr,length-1);
     }
 
     private static void mergeSort(int[] arr,int left,int right) {
