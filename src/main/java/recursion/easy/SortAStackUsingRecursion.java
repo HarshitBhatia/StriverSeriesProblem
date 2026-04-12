@@ -15,26 +15,26 @@ public class SortAStackUsingRecursion {
         //Now will sort this stack
         printStack(stk);
         //After sort
-        sortStack(stk);
+        reverseStack(stk);
         printStack(stk);
     }
 
-    private static void sortStack(Stack<Integer> stk) {
+    private static void reverseStack(Stack<Integer> stk) {
         if(!stk.isEmpty()){
             Integer temp=stk.pop();
-            sortStack(stk);
-            insertInStack(stk,temp);
+            reverseStack(stk);
+            insertAtBottom(temp,stk);
         }
     }
 
-    private static void insertInStack(Stack<Integer> stk,Integer temp) {
-        if(stk.isEmpty() || stk.peek()<=temp){
+    private static void insertAtBottom(Integer temp, Stack<Integer> stk) {
+        if(stk.isEmpty()){
             stk.push(temp);
-            return;
+            return ;
         }
-        Integer valuePop=stk.pop();
-        insertInStack(stk,temp);
-        stk.push(valuePop);
+        Integer popV=stk.pop();
+        insertAtBottom(temp,stk);
+        stk.push(popV);
     }
 
     private static void printStack(Stack<Integer> stk) {

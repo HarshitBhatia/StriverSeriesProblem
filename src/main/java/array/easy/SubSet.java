@@ -2,6 +2,7 @@ package array.easy;
 
 import java.util.ArrayList;
 import java.util.List;
+import utility.Helper;
 
 public class SubSet {
     static List<List<Integer>> op=new ArrayList<>();
@@ -11,7 +12,7 @@ public class SubSet {
 //        List<List<Integer>> op=generateAllSubset(arr);
         ArrayList<Integer> lst=new ArrayList<Integer>();
         generateAllSubsetUsingBacktracking(0,lst,arr);
-        printListValues(op);
+        Helper.printListValues(op);
     }
 
     private static void generateAllSubsetUsingBacktracking(int i, ArrayList<Integer> lst, int[] arr) {
@@ -21,17 +22,6 @@ public class SubSet {
             generateAllSubsetUsingBacktracking(first+1,lst,arr);
             lst.removeLast();
         }
-    }
-
-
-    private static void printListValues(List<List<Integer>> op) {
-        for(List<Integer> lst: op){
-            for(Integer ele:lst){
-                System.out.print(ele+" ");
-            }
-            System.out.println();
-        }
-
     }
 
     private static List<List<Integer>> generateAllSubset(int[] nums) {

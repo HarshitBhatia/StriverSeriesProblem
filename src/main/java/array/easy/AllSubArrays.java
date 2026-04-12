@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class AllSubArrays {
     public static void main(String[] args) {
         int[] array= Fields.upArray;
